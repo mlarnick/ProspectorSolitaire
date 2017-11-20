@@ -42,7 +42,7 @@ public class Bartok : MonoBehaviour
     public List<CardBartok> discardPile;
 
     public BartokLayout layout;
-    public Transform layoutAnchor;
+    public Transform    layoutAnchor;
 
     public List<Player> players;
     public CardBartok targetCard;
@@ -57,9 +57,6 @@ public class Bartok : MonoBehaviour
     #endregion
 
     #region CustomFunction
-    #region Static
-
-    #endregion
 
     #region Public
     public void ArrangeDrawPile()
@@ -73,7 +70,7 @@ public class Bartok : MonoBehaviour
             tCB.transform.localPosition = layout.drawPile.pos;
             tCB.FaceUp = false;
             tCB.SetSortingLayerName(layout.drawPile.layerName);
-            tCB.SetSortOrder(-1 * 4);
+            tCB.SetSortOrder(-i * 4);
             tCB.state = CBState.drawpile;
         }
     }
@@ -229,7 +226,7 @@ public class Bartok : MonoBehaviour
     #endregion
 
     #region Private
-    private List<CardBartok> UpgradeCardsList(List<Card> lCD)
+    List<CardBartok> UpgradeCardsList(List<Card> lCD)
     {
         List<CardBartok> lCB = new List<CardBartok>();
         foreach (Card tCD in lCD) lCB.Add(tCD as CardBartok);
@@ -247,14 +244,14 @@ public class Bartok : MonoBehaviour
 
         ArrangeDrawPile();
 
-        Player p1;
+        Player pl;
         players = new List<Player>();
         foreach (SlotDefBartok tSD in layout.slotDefs)
         {
-            p1 = new Player();
-            p1.handSLotDef = tSD;
-            players.Add(p1);
-            p1.playerNum = players.Count;
+            pl = new Player();
+            pl.handSLotDef = tSD;
+            players.Add(pl);
+            pl.playerNum = players.Count;
         }
         players[0].type = PlayerType.human;
 
@@ -288,12 +285,6 @@ public class Bartok : MonoBehaviour
     }
     #endregion
 
-    #region Getters_Setters
-
-    #endregion
-    #endregion
-
-    #region UnityFunctions
 
     #endregion
 
