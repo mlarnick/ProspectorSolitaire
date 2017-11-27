@@ -29,7 +29,7 @@ public class Player
 
     public List<CardBartok> hand;
 
-    public SlotDefBartok handSLotDef;
+    public SlotDefBartok handSlotDef;
     #endregion
 
     #region Private
@@ -56,7 +56,7 @@ public class Player
         }
 
         eCB.SetSortingLayerName("10");
-        eCB.eventualSortLayer = handSLotDef.layerName;
+        eCB.eventualSortLayer = handSlotDef.layerName;
 
         FanHand();
         return eCB;
@@ -71,7 +71,7 @@ public class Player
 
     public void FanHand()
     {
-        float startRot = handSLotDef.rot;
+        float startRot = handSlotDef.rot;
         if (hand.Count > 1) startRot += Bartok.S.handFanDegrees * (hand.Count - 1) / 2;
 
         Vector3 pos;
@@ -86,7 +86,7 @@ public class Player
 
             pos = rotQ * pos;
 
-            pos += handSLotDef.pos;
+            pos += handSlotDef.pos;
             pos.z = -.5f * i;
 
             if (Bartok.S.phase != TurnPhase.idle) hand[i].timeStart = 0;
@@ -101,7 +101,7 @@ public class Player
             hand[i].FaceUp = (type == PlayerType.human);
 
             hand[i].eventualSortOrder = i * 4;
-            //hand[i].SetSortOrder(i * 4);
+            hand[i].SetSortOrder(i * 4);
         }
     }
 

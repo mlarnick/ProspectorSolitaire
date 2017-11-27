@@ -143,7 +143,7 @@ public class Bartok : MonoBehaviour
 
         CURRENT_PLAYER.TakeTurn();
 
-        Vector3 lPos = CURRENT_PLAYER.handSLotDef.pos + Vector3.back * 5;
+        Vector3 lPos = CURRENT_PLAYER.handSlotDef.pos + Vector3.back * 5;
         turnLight.transform.position = lPos;
 
         Utils.tr(Utils.RoundToPlaces(Time.time), "Bartok.PassTurn()", "Old: " + lastPlayerNum, "New: " + CURRENT_PLAYER.playerNum);
@@ -250,7 +250,7 @@ public class Bartok : MonoBehaviour
         foreach (SlotDefBartok tSD in layout.slotDefs)
         {
             pl = new Player();
-            pl.handSLotDef = tSD;
+            pl.handSlotDef = tSD;
             players.Add(pl);
             pl.playerNum = players.Count;
         }
