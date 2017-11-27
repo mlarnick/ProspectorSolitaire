@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public enum TurnPhase
 {
@@ -200,13 +201,13 @@ public class Bartok : MonoBehaviour
         {
             if(CURRENT_PLAYER.type == PlayerType.human)
             {
-                gtGameOver.GetComponent<GUIText>().text = "You Won!";
-                gtRoundResult.GetComponent<GUIText>().text = "";
+                gtGameOver.GetComponent<Text>().text = "You Won!";
+                gtRoundResult.GetComponent<Text>().text = "";
             }
             else
             {
-                gtGameOver.GetComponent<GUIText>().text = "Game Over";
-                gtRoundResult.GetComponent<GUIText>().text = "Player " + CURRENT_PLAYER.playerNum + " won";
+                gtGameOver.GetComponent<Text>().text = "Game Over";
+                gtRoundResult.GetComponent<Text>().text = "Player " + CURRENT_PLAYER.playerNum + " won";
             }
             gtGameOver.SetActive(true);
             gtRoundResult.SetActive(true);
